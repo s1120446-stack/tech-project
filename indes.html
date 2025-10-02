@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學生 | 自動化與量化交易</title>
+    <!-- 載入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 載入 Lucide Icons (用於簡潔的圖標) -->
+    <script type="module" src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        /* 使用 Inter 字體以保持專業和現代感 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            /* 設置整個頁面的背景：深灰到深藍的漸變 */
+            background-color: #0d1117;
+            background-image: linear-gradient(135deg, #0d1117 0%, #171c25 100%);
+            min-height: 100vh;
+        }
+        /* 定義打字機游標閃爍動畫 */
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            margin-left: 2px;
+            background-color: white;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="text-gray-100 flex items-center justify-center p-4">
+
+    <!-- 主容器：針對 RWD 進行最大寬度限制，並居中 -->
+    <main class="w-full max-w-lg md:max-w-xl bg-gray-900/80 backdrop-blur-sm p-6 sm:p-10 rounded-3xl shadow-2xl border border-gray-700/50">
+
+        <!-- 頭像與標題區 -->
+        <header class="text-center mb-10">
+            <!-- 模擬頭像或專業標誌 -->
+            <div class="mx-auto w-24 h-24 bg-indigo-600 rounded-full flex items-center justify-center mb-4 shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white lucide lucide-area-chart"><path d="M3 3v18h18"/><path d="M7 12v5"/><path d="M12 10v7"/><path d="M17 5v12"/></svg>
+            </div>
+            
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white mb-2">
+                您的名稱或專業代號
+            </h1>
+            
+            <!-- 動態技能展示區 -->
+            <p class="text-xl sm:text-2xl font-light text-indigo-300 h-8">
+                <span id="skill-text"></span><span class="typing-cursor"></span>
+            </p>
+        </header>
+
+        <!-- Linktree 風格連結區 -->
+        <section class="space-y-4">
+            <h2 class="text-lg font-semibold text-gray-400 mb-6 border-b border-gray-700 pb-2">
+                專業連結與作品集 (Link Hub)
+            </h2>
+
+            <!-- 連結按鈕元件 -->
+            <!-- 1. GitHub -->
+            <a href="https://github.com/YourUsername" target="_blank" class="link-button bg-gray-700 hover:bg-gray-600 focus:ring-indigo-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-github"><path d="M15 22.3V19h2.95l.55-.55c.37-.37.58-.87.58-1.42 0-.55-.21-1.05-.58-1.42l-.55-.55V9.7H15v-.5a3 3 0 0 0-3-3h-2a3 3 0 0 0-3 3v.5H5.45l-.55.55c-.37.37-.58.87-.58 1.42 0 .55.21 1.05.58 1.42l.55.55V19h2.95v3.3H7.55a.95.95 0 0 1-.95-.95V19H5.5c-2.3 0-4.5-2.2-4.5-4.5V9.5c0-2.3 2.2-4.5 4.5-4.5h13c2.3 0 4.5 2.2 4.5 4.5v5c0 2.3-2.2 4.5-4.5 4.5h-1.05v2.35c0 .52-.43.95-.95.95H15z"/></svg>
+                GitHub - 程式碼作品集
+            </a>
+
+            <!-- 2. LinkedIn -->
+            <a href="https://linkedin.com/in/YourProfile" target="_blank" class="link-button bg-blue-700 hover:bg-blue-600 focus:ring-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn - 專業經歷
+            </a>
+
+            <!-- 3. Email (點擊即發郵件) -->
+            <a href="mailto:your.email@example.com" class="link-button bg-red-600 hover:bg-red-500 focus:ring-red-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.99 1.99 0 0 1-2.06 0L2 7"/></svg>
+                Email - 聯絡我
+            </a>
+
+            <!-- 4. Instagram / 個人風格 -->
+            <a href="https://instagram.com/YourIGHandle" target="_blank" class="link-button bg-pink-600 hover:bg-pink-500 focus:ring-pink-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                Instagram - 個人生活
+            </a>
+
+        </section>
+
+        <!-- 頁腳 (選用：版權聲明或簡短說明) -->
+        <footer class="mt-10 pt-4 border-t border-gray-700 text-center text-sm text-gray-500">
+            &copy; 2025 Your Name. Powered by Automation & Data.
+        </footer>
+    </main>
+
+    <script>
+        // Tailwind CSS 針對連結按鈕的通用樣式
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .link-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                padding: 1rem 1.5rem;
+                text-align: center;
+                font-size: 1.125rem; /* text-xl */
+                font-weight: 600; /* font-semibold */
+                color: #fff;
+                border-radius: 0.75rem; /* rounded-xl */
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+                border: 1px solid transparent;
+            }
+            .link-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+            }
+            .link-button:focus {
+                outline: none;
+                border-color: rgba(129, 140, 248, 0.5); /* focus ring color */
+            }
+        `;
+        document.head.appendChild(style);
+
+        // JavaScript 實現打字機效果 (動態風格重點)
+        const skillTextElement = document.getElementById('skill-text');
+        const skills = [
+            "自動化技術應用者 (Automation)",
+            "量化交易策略開發 (Quant Trading)",
+            "高效數據分析 (Data Analysis)",
+            "金融科技創新 (FinTech)"
+        ];
+        let skillIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeSkill() {
+            const currentSkill = skills[skillIndex];
+            
+            if (isDeleting) {
+                // 刪除文字
+                charIndex--;
+                skillTextElement.textContent = currentSkill.substring(0, charIndex);
+                typingSpeed = 50; // 刪除速度稍快
+            } else {
+                // 輸入文字
+                charIndex++;
+                skillTextElement.textContent = currentSkill.substring(0, charIndex);
+                typingSpeed = 100; // 輸入速度
+            }
+
+            // 判斷狀態轉換
+            if (!isDeleting && charIndex === currentSkill.length) {
+                // 完成輸入，暫停 1.5 秒後開始刪除
+                typingSpeed = 1500;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // 完成刪除，切換到下一個技能，暫停 0.5 秒後開始輸入
+                isDeleting = false;
+                skillIndex = (skillIndex + 1) % skills.length;
+                typingSpeed = 500;
+            }
+            
+            // 遞迴呼叫
+            setTimeout(typeSkill, typingSpeed);
+        }
+
+        // 頁面載入後啟動打字機效果
+        window.onload = function() {
+            typeSkill();
+        };
+
+        // 提示：請將所有連結中的 'YourUsername', 'YourProfile', 'your.email@example.com', 'YourIGHandle' 替換為您的真實資訊。
+    </script>
+</body>
+</html>
